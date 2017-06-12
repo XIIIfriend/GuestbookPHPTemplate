@@ -14,7 +14,6 @@
 
 </head>
 
-<body>
 
 
 
@@ -40,6 +39,7 @@ if (isset($_POST["commit"])) {
         return $inhalt;
     }
 
+    //Für jeden Eintrag in Post, hänge ein g. an
     foreach ($_POST as $key => $element) {
         //Dynamische Variablen erzeugen, wie g_fname, etc.
         //und die Eingaben Filtern
