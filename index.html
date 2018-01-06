@@ -1,0 +1,80 @@
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX fn:      <http://www.w3.org/2005/xpath-functions#>
+PREFIX apf:     <http://jena.hpl.hp.com/ARQ/property#>
+PREFIX dc:      <http://purl.org/dc/elements/1.1/>
+PREFIX ex:      <https://www.example.com/>
+
+ex:film a rdfs:class.
+ex:film rdfs:label "Film".
+
+ex:hauptSchauspieler rdfs:subclassOf ex:schauspieler.
+
+ex:kategorie a ex:action.
+ex:kategorie a ex:dokumentation.
+ex:kategorie a ex:horror.
+ex:kategorie a ex:scienceFiction.
+ex:kategorie a ex:komödie.
+
+ex:hatKategorie rdfs:range ex:kategorie.
+ex:hatKategorie rdfs:domain ex:film.
+
+ex:hatSchauspieler rdfs:domain ex:film.
+ex:hatSchauspieler rdfs:range ex:schauspieler.
+
+ex:hatHauptSchauspieler rdfs:domain ex:film.
+ex:hatHauptSchauspieler rdfs:range ex:hauptschauspieler.
+
+ex:hatHauptSchauspieler rdf:subPropertyOf ex:hatSchauspieler.
+
+ex:hatTitel rdfs:range xsd:string.
+ex:hatTitel rdfs:domain ex:film.
+
+ex:hatName rdfs:domain ex:schauspieler.
+
+ex:hatRegisseur rdfs:domain ex:film.
+ex:hatRegisseur rdfs:range ex:regisseur.
+
+ex:hatFigur rdfs:domain ex:film.
+ex:hatFigur rdfs:range ex:figur.
+
+
+ex:splash a ex:film.
+ex:splash ex:hatTitel "Splash".
+ex:splash ex:hatSchauspieler ex:johnCandy, ex:tomHanks.
+ex:splash ex:hatKategorie ex:komödie.
+
+ex:twins a ex:film.
+ex:twins ex:hatTitel "Twins".
+ex:twins ex:hatKategorie ex:komödie.
+ex:twins ex:hatHauptSchauspieler ex:arnoldSchwarzenNegger.
+ex:twins ex:hatHauptSchauspieler ex:dannyDeVito.
+
+ex:batmanReturns a ex:film.
+ex:batmanReturns ex:hatTitel "Batman Returns".
+ex:batmanReturns ex:hatSchauspieler ex:dannyDevito.
+
+ex:batmanAndRobin a ex:film.
+ex:batmanAndRobin ex:hatTitel "Batman and Robin".
+ex:batmanAndRobin ex:hatSchauspieler ex:arnoldSchwarzennegger.
+
+ex:alien a ex:film.
+ex:alien ex:hatTitel "Alien".
+ex:alien ex:hatSchauspieler ex:sigourneyWeaver.
+ex:alien ex:hatRegisseur ex:ridleyScott.
+
+ex:ghostbusters a ex:film.
+ex:ghostbusters ex:hatTitel "Ghostbusters".
+ex:ghostbusters ex:hatRegissuer ex:ivanReitman.
+ex:ghostbusters ex:hatSchauspieler ex:sigourneyWeaver.
+
+ex:johnCandy a ex:schauspieler.
+ex:tomHanks a ex:schauspieler.
+ex:arnoldSchwarzenegger a ex:schauspieler.
+ex:dannyDevito a ex:schauspieler. 
+ex:sigourneyWeaver a ex:schauspieler.
+
+ex:ridleyScott a ex:regisseur.
+ex:ivanReitman a ex:regisseur.
