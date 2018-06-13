@@ -1,84 +1,71 @@
-PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl:     <http://www.w3.org/2002/07/owl#>
-PREFIX fn:      <http://www.w3.org/2005/xpath-functions#>
-PREFIX apf:     <http://jena.hpl.hp.com/ARQ/property#>
-PREFIX dc:      <http://purl.org/dc/elements/1.1/>
-PREFIX ex:      <https://www.example.com/>
 
-ex:film a rdfs:class.
-ex:film rdfs:label "Film".
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="icon" href="../../favicon.ico"-->
 
-ex:hauptSchauspieler rdfs:subclassOf ex:schauspieler.
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-ex:kategorie a ex:action.
-ex:kategorie a ex:dokumentation.
-ex:kategorie a ex:horror.
-ex:kategorie a ex:scienceFiction.
-ex:kategorie a ex:komödie.
+    <title>Sulzer Guestbook</title>
+</head>
 
-ex:hatKategorie rdfs:range ex:kategorie.
-ex:hatKategorie rdfs:domain ex:film.
+<body>
 
-ex:hatSchauspieler rdfs:domain ex:film.
-ex:hatSchauspieler rdfs:range ex:schauspieler.
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="index.html">Home</a></li>
+                <li role="presentation"><a href="content.html">Content</a></li>
+                <li role="presentation"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Sulzer Guestbook</h3>
+    </div>
 
-ex:hatHauptSchauspieler rdfs:domain ex:film.
-ex:hatHauptSchauspieler rdfs:range ex:hauptschauspieler.
+    <div class="jumbotron">
+        <h1>This is our welcome page here.</h1>
+        <p class="lead">It is tradition to print a "hello world" for the first time using a new language.</p>
+    </div>
 
-ex:hatHauptSchauspieler rdf:subPropertyOf ex:hatSchauspieler.
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>Downloading a raspian.</h4>
+            <p>First we choose the specific operating system, we want to install on a sd-card.</p>
 
-ex:hatTitel rdfs:range xsd:string.
-ex:hatTitel rdfs:domain ex:film.
+            <h4>Flashing a raspian.</h4>
+            <p>We flash the operating system on a sd-card!</p>
 
-ex:hatName rdfs:domain ex:schauspieler.
+            <h4>Starting the raspian.</h4>
+            <p>We start the raspian and evaluate what we see!</p>
+        </div>
 
-ex:hatRegisseur rdfs:domain ex:film.
-ex:hatRegisseur rdfs:range ex:regisseur.
+        <div class="col-lg-6">
+            <h4>Installing an Apache Server</h4>
+            <p>We install an apache Server and start it.</p>
 
-ex:hatFigur rdfs:domain ex:film.
-ex:hatFigur rdfs:range ex:figur.
+            <h4>Introduction to Bootstrap</h4>
+            <p>We ge to know bootstrap and develop a simple good looking Website:</p>
+
+            <h4>Guestbook</h4>
+            <p>We develop a guestbook in php</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2017 Sulzer, GmbH</p>
+    </footer>
+
+</div> <!-- /container -->
 
 
-ex:splash a ex:film.
-ex:splash ex:hatTitel "Splash".
-ex:splash ex:hatSchauspieler ex:johnCandy, ex:tomHanks.
-ex:splash ex:hatKategorie ex:komödie.
-
-ex:twins a ex:film.
-ex:twins ex:hatTitel "Twins".
-ex:twins ex:hatKategorie ex:komödie.
-ex:twins ex:hatHauptSchauspieler ex:arnoldSchwarzenegger.
-ex:twins ex:hatHauptSchauspieler ex:dannyDeVito.
-
-ex:batmanReturns a ex:film.
-ex:batmanReturns ex:hatTitel "Batman Returns".
-ex:batmanReturns ex:hatSchauspieler ex:dannyDevito.
-
-ex:batmanAndRobin a ex:film.
-ex:batmanAndRobin ex:hatTitel "Batman and Robin".
-ex:batmanAndRobin ex:hatSchauspieler ex:arnoldSchwarzenegger.
-
-ex:alien a ex:film.
-ex:alien ex:hatTitel "Alien".
-ex:alien ex:hatSchauspieler ex:sigourneyWeaver.
-ex:alien ex:hatRegisseur ex:ridleyScott.
-
-ex:ghostbusters a ex:film.
-ex:ghostbusters ex:hatTitel "Ghostbusters".
-ex:ghostbusters ex:hatRegisseur ex:ivanReitman.
-ex:ghostbusters ex:hatSchauspieler ex:sigourneyWeaver.
- 
-ex:forrestGump a ex:film.
-ex:forrestGump ex:hatTitel "Forrest Gump".
-ex:forrestGump ex:hatSchauspieler ex:tomHanks.
-
-ex:johnCandy a ex:schauspieler.
-ex:tomHanks a ex:schauspieler.
-ex:arnoldSchwarzenegger a ex:schauspieler.
-ex:dannyDevito a ex:schauspieler. 
-ex:sigourneyWeaver a ex:schauspieler.
-
-ex:ridleyScott a ex:regisseur.
-ex:ivanReitman a ex:regisseur.
+</body>
+</html>
